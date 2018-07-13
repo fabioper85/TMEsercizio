@@ -26,7 +26,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'esame_crusca'@'localhost' REQUIRE NONE WITH GRAN
 CREATE TABLE IF NOT EXISTS`costo_mezzo_trasporto` (
   `id` int(11) NOT NULL,
   `nome_mezzo` varchar(255) NOT NULL,
-  `peso massimo` float(10,2) NOT NULL,
+  `peso_massimo` float(10,2) NOT NULL,
   `costo` float(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -145,7 +145,7 @@ INSERT INTO `merce` (`codice`, `descrizione`, `peso`) VALUES
 ('HUP20', 'Smartphone Huawei P20', '0.53'),
 ('BSHT1R', 'Ampli Combo valvolare BlackStar HT 1-R', '6');
 
-INSERT INTO `costo_mezzo_trasporto` (`nome_mezzo`, `peso massimo`, `costo`) VALUES
+INSERT INTO `costo_mezzo_trasporto` (`nome_mezzo`, `peso_massimo`, `costo`) VALUES
 ('A piedi', '1', '5.90'),
 ('Bicicletta', '5', '7.90'),
 ('Ape', '30', '12.90'),
@@ -155,3 +155,13 @@ INSERT INTO `costo_mezzo_trasporto` (`nome_mezzo`, `peso massimo`, `costo`) VALU
 ('Piccione viaggiatore', '0.7', '5.20'),
 ('Drone grande', '3', '6.90'),
 ('Automobile', '25', '11.50');
+
+INSERT INTO `spedizione` (`numero`, `date`) VALUES 
+('34564', '2018-07-17 00:00:00'),
+('3541231', '2018-07-31 00:00:00');
+
+INSERT INTO `merce_spedizione` (`id`, `id_spedizione`, `id_merce`, `quantità`) VALUES
+(NULL, '1', '2', '2'),
+(NULL, '1', '1', '3'),
+(NULL, '2', '5', '10'),
+(NULL, '2', '2', '10');

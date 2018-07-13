@@ -12,6 +12,7 @@ import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.engim.tss2018.dao.DAOSpedizioni;
+import org.engim.tss2018.db.CostoMezzoTrasporto;
 import org.engim.tss2018.db.Spedizione;
 
 public class PaginaSpedizione extends PaginaBase
@@ -43,11 +44,24 @@ public class PaginaSpedizione extends PaginaBase
       }
     };
     
+    AbstractColumn<Spedizione, String> mdt = new AbstractColumn<Spedizione, String>(Model.of("Mezzo"))
+    {
+      @Override
+      public void populateItem(Item<ICellPopulator<Spedizione>> item, String wicketId, IModel<Spedizione> rowModel)
+      {
+        CostoMezzoTrasporto cmt = DAOSpedizioni.mezzoEconomico(rowModel.getObject());
+        String mezzo = "€ " + cmt.getCosto() + " (" + cmt.getNomeMezzo() + ")";
+        Label l_mezzo = new Label(wicketId, mezzo);
+        item.add(l_mezzo);
+      }
+    };
+    
     colonne.add(id);
     colonne.add(nome);
     colonne.add(peso);
     colonne.add(pesoTot);
     colonne.add(azioni);
+    colonne.add(mdt);
     
     SPDataProvider<Spedizione> dataprov = new SPDataProvider<>(Spedizione.class);
     

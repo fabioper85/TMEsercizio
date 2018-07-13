@@ -22,8 +22,6 @@ public class FormEditMerce extends Form<Merce>
     
     setDefaultModel(new CompoundPropertyModel<Merce>(m));
     
-    // add(new TextField("id"));
-    
     TextField codice = new TextField("codice");
     codice.setRequired(true);
     add(codice);
@@ -36,7 +34,6 @@ public class FormEditMerce extends Form<Merce>
     peso.setRequired(true);
     peso.setStep(0.01);
     peso.add(new RangeValidator<Float>(Float.valueOf(0.01f), Float.valueOf(100000)));
-    //peso.add(RangeValidator.minimum(0));
     add(peso);
   }
 
@@ -48,8 +45,6 @@ public class FormEditMerce extends Form<Merce>
     super.onBeforeRender();
   }
   
-  
-
   @Override
   protected void onSubmit()
   {

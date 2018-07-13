@@ -1,3 +1,4 @@
+org/engim/tss2018/PaginaMerce$1.class
 org/engim/tss2018/dao/DAOGenerico.class
 org/engim/tss2018/FormEditMerce.class
 org/engim/tss2018/PM$EMapMBean.class
@@ -27,3 +28,4 @@ org/engim/tss2018/PM$EntityMapMXBean.class
 org/engim/tss2018/AzioniPanel$1.class
 org/engim/tss2018/SPDataProvider.class
 org/engim/tss2018/PM$EMWrapper.class
+org/engim/tss2018/PaginaSpedizione$3.class

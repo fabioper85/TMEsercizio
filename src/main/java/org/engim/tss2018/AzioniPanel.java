@@ -1,5 +1,6 @@
 package org.engim.tss2018;
 
+import javax.persistence.PersistenceException;
 import org.apache.wicket.RestartResponseException;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -18,7 +19,15 @@ public class AzioniPanel extends Panel
       @Override
       public void onClick(AjaxRequestTarget art)
       {
-        DAOGenerico.elimina(p);
+        try
+        {
+          DAOGenerico.elimina(p);
+        }
+        catch(PersistenceException pe)
+        {
+          getPage().error("Ci sono relazioni, non puoi eliminare!");
+        }
+        
         throw new RestartResponseException(getPage());
       }
       
