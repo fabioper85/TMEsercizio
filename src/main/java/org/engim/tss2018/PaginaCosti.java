@@ -29,7 +29,5 @@ public class PaginaCosti extends PaginaBase
     DefaultDataTable table = new DefaultDataTable("costi_trasporto", colonne, dataprov, 10);
     
     add(table);
-    
-    add(new FormEditMerce("editCosti"));
   }
 }
